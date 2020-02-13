@@ -2,8 +2,18 @@ $(document).ready(function() {
   printAllList();
   $(document).on('click', '#send_btn', function() {
     var inputVal = $('#input_add').val();
-    console.log(inputVal);
-    addElement(inputVal);
+    if (inputVal == '') {
+      alert('Campo vuoto! Inserire un valore!');
+    } else {
+      resetAll();
+      console.log(inputVal);
+      addElement(inputVal);
+    }
+  });
+  $(document).on('click', 'span.delete_btn', function() {
+    var thisElement = $(this).parent().attr('data-id');
+    deleteElement(thisElement);
+    resetAll();
   });
 });
 
@@ -33,7 +43,7 @@ function printAllList() {
   });
 }
 
-
+// FUNZIONE CHE AGGIUNGE UN ELEMENTO ALLA LISTA
 function addElement(value) {
   $.ajax({
     url: 'http://157.230.17.132:3029/todos',
@@ -42,18 +52,8 @@ function addElement(value) {
       text: value
     },
     success: function(data) {
-      var source = $('#entry-template').html();
-      var template = Handlebars.compile(source);
-      for (var i = 0; i < data.length; i++) {
-        var thisElement = data[i].text;
-        var singleId = data[i].id;
-        var context = {
-          text: thisElement,
-          id: singleId
-        };
-        var html = template(context);
-        $('.todo_list').append(html);
-      }
+      console.log(data);
+      printAllList();
     },
     error: function (request, state, errors) {
       alert('Errore' + ' ' + error);
@@ -61,3 +61,21 @@ function addElement(value) {
   });
 }
 // http://157.230.17.132:3029/todos
+function deleteElement(id) {
+  $.ajax({
+    url: 'http://157.230.17.132:3029/todos/' + id,
+    method: 'DELETE',
+    success: function(data) {
+      console.log(data);
+      printAllList();
+    },
+    error: function (request, state, errors) {
+      alert('Errore' + ' ' + error);
+    }
+  });
+}
+// FUNZIONE PER IL RESET
+function resetAll() {
+  $('ol.todo_list').html('');
+  $('#input_add').val('');
+}

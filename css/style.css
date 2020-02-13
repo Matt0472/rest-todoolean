@@ -7,3 +7,15 @@
 ol {
   margin: 10px 30px;
 }
+
+ol li {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 20px;
+  border: 2px solid rgb(0, 159, 255);
+  background-color: rgb(46, 115, 93);
+}
+span.delete_btn {
+  cursor: pointer;
+}
