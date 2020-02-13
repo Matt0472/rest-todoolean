@@ -13,17 +13,21 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="grid_wrapper">
+  <div class="todo_wrapper">
+    <input id="input_add" type="text" name="" value="" placeholder="Inserisci qualcosa da fare">
+    <button id="send_btn" type="button" name="button">Inserisci</button>
 
+    <ol class="todo_list">
+
+    </ol>
   </div>
 
 
 
 
 
-
   <script id="entry-template" type="text/x-handlebars-template">
-      <img src="{{src}}" alt="">
+      <li class="list_item" data-id="{{id}}">{{text}}</li>
   </script>
   <script src="js/script.js" charset="utf-8"></script>
 </body>
