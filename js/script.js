@@ -15,6 +15,18 @@ $(document).ready(function() {
     deleteElement(thisElement);
     resetAll();
   });
+  // $(document).on('click', '#update_input', function() {
+  //   var thisInput = $(this).val();
+  //   var attr = $(this).attr('data-id');
+  //   console.log(thisInput, attr);
+  // });
+    // $(document).on('click', '#update_button', function() {
+    //   var thisInput = $(this).find('#update_input').val();
+    //   var attr = $(this).find('#update_input').attr('data-id');
+    //   updateElement(attr, thisInput);
+    //   resetAll();
+    // });
+    // updateElement();
 });
 
 // FUNZIONE PER LA STAMPA DI TUTTA LA LISTA
@@ -74,6 +86,22 @@ function deleteElement(id) {
     }
   });
 }
+// FUNZIONE PER LA MODIFICA DEGLI ELEMENTI
+// function updateElement() {
+//   $.ajax({
+//     url: 'http://157.230.17.132:3029/todos/9',
+//     method: 'PUT',
+//     data: {
+//       text: 'Prendi un\'aspirina'
+//     },
+//     success: function(data) {
+//       console.log(data);
+//     },
+//     error: function (request, state, errors) {
+//       alert('Errore' + ' ' + error);
+//     }
+//   });
+// }
 // FUNZIONE PER IL RESET
 function resetAll() {
   $('ol.todo_list').html('');
