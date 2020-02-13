@@ -1,4 +1,13 @@
 $(document).ready(function() {
+  printAllList();
+  $(document).on('click', '#send_btn', function() {
+    var inputVal = $('#input_add').val();
+    console.log(inputVal);
+  });
+});
+
+// FUNZIONE PER LA STAMPA DI TUTTA LA LISTA
+function printAllList() {
   $.ajax({
     url: 'http://157.230.17.132:3029/todos',
     method: 'GET',
@@ -21,8 +30,10 @@ $(document).ready(function() {
       alert('Errore' + ' ' + error);
     }
   });
-});
+}
 
 
+function addElement(value) {
 
+}
 // http://157.230.17.132:3029/todos
