@@ -3,7 +3,18 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body {
+  font-family: 'Lobster', cursive;
+  font-size: 14px;
+}
+.todo_wrapper {
+  width: 85%;
+  margin: auto;
+  text-align: center;
+}
+h1 {
+  font-size: 40px;
+}
 ol {
   margin: 10px 30px;
 }
